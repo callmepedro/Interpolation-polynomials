@@ -1,0 +1,16 @@
+@import "../../../assets/scss/variables";
+
+.page-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  &__content {
+    background: $bg-color;
+    flex: 1 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

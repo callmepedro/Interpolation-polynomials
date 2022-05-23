@@ -1,0 +1,46 @@
+{
+    "extends": [
+        "./node_modules/gts/",
+        "plugin:import/errors",
+        "plugin:import/typescript"
+    ],
+    "plugins": [
+        "import",
+        "unused-imports"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts", ".tsx", ".js", ".jsx"],
+                "moduleDirectory": ["node_modules", "src"]
+            }
+        },
+        "import/extensions": [".ts", ".tsx", ".js", ".jsx", "*.css", "*.scss"],
+        "import/ignore": ["node_modules"]
+    },
+    "rules": {
+        "unused-imports/no-unused-imports": "error",
+        "node/no-unpublished-require": "off",
+        "node/no-unpublished-import": "off",
+        "import/no-duplicates": ["error"],
+        "import/order": [
+            "error", {
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                },
+                "groups": [
+                    "builtin", "external", "internal",
+                    ["parent", "sibling", "index"]
+                ],
+                "pathGroups": [
+                    {"pattern": "react", "group": "builtin", "position": "before"}
+                ],
+                "pathGroupsExcludedImportTypes": ["react", "*.scss"]
+            }
+        ],
+        "object-curly-spacing": ["error", "always"],
+        "@typescript-eslint/no-explicit-any": "off"
+    }
+}
